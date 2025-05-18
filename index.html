@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>Admin Dashboard</h1>
+                <button id="close-sidebar" class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="fas fa-users"></i>
+                            <span>Users</span>
+                            <span class="badge">24</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-tab="all-users">All Users</a></li>
+                            <li><a href="#" data-tab="active-users">Active Users</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <button id="toggle-sidebar" class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="search" id="header-search" placeholder="Search..." class="search-input">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-indicator"></span>
+                    </button>
+                    <div class="user-profile">
+                        <div class="avatar">AD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <h1 class="page-title">Dashboard</h1>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <p class="stat-title">Total Users</p>
+                            <h3 class="stat-value">2,543</h3>
+                            <p class="stat-change positive">+12.5% from last month</p>
+                        </div>
+                        <div class="stat-icon bg-blue-500">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <p class="stat-title">Active Users</p>
+                            <h3 class="stat-value">1,873</h3>
+                            <p class="stat-change positive">+7.2% from last month</p>
+                        </div>
+                        <div class="stat-icon bg-blue-600">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <p class="stat-title">Inactive Users</p>
+                            <h3 class="stat-value">670</h3>
+                            <p class="stat-change negative">-3.1% from last month</p>
+                        </div>
+                        <div class="stat-icon bg-blue-700">
+                            <i class="fas fa-user-times"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <p class="stat-title">User Activity</p>
+                            <h3 class="stat-value">85%</h3>
+                            <p class="stat-change positive">+4.3% from last month</p>
+                        </div>
+                        <div class="stat-icon bg-blue-800">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Management Card -->
+                <div class="card user-management">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">User Management</h2>
+                            <p class="card-description">Manage your users and their access levels</p>
+                        </div>
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="search" id="user-search" placeholder="Search users..." class="search-input">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="all-users">All Users</button>
+                            <button class="tab-btn" data-tab="active-users">Active Users</button>
+                        </div>
+
+                        <div class="tab-content active" id="all-users">
+                            <div class="table-container">
+                                <table class="users-table">
+                                    <thead>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th class="hide-mobile">Last Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="all-users-table">
+                                        <!-- Table rows will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="active-users">
+                            <div class="table-container">
+                                <table class="users-table">
+                                    <thead>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Role</th>
+                                            <th class="hide-mobile">Last Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="active-users-table">
+                                        <!-- Table rows will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
