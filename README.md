@@ -32,5 +32,7 @@ Currently, the dashboard uses **dummy data** for demonstration purposes, making 
    
 2. **Open the project**
   Simply open the index.html file in your browser.
+
   OR
+
   Run using live server.
